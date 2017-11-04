@@ -22,7 +22,7 @@ for m=i:-1:1
     end
     solucoes(m) = (matrizGauss(m, j) - somatorio)/matrizGauss(m, m);
 end
-disp('\n\tSoluções\n');
+fprintf('\n\tSoluções\n');
 disp(solucoes);
 resultado = solucoes;
 end

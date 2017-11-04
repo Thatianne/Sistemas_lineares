@@ -46,7 +46,7 @@ for m=i:-1:1
     end
     solucoes(m) = (uAumentada(m, j) - somatorio)/uAumentada(m, m);
 end
-disp('\n\tSoluções\n');
+fprintf('\n\tSoluções\n');
 disp(solucoes);
 resultado = solucoes;
 end
