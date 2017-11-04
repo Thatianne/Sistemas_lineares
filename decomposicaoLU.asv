@@ -19,8 +19,27 @@ for i=1:m
             end
             u(i, j) = (matrizA(i, j) - somatorioU)/l(i, i);
         end
-        if 
+        if i == j
+            u(i, i) = 1;
+        end
     end
 end
 disp(l);
 disp(u);
+[i, j] = size(sistema);
+lAumentada = [l sistema(:, j)];
+%Raízes l
+raizes = ones(1, i);    
+for m=1:i    
+    vet = (lAumentada(m, 1:m) .* raizes(1, 1:m));    
+    %somatório sum(vet)
+    somatorio = sum(vet(1, 1:n));
+    disp('vet');
+    disp(vet);
+    disp(somatorio);
+%     for n=1:
+%          somatorio = somatorio + vet(1, n);
+%     end
+    raizes(m) = (lAumentada(m, j) - somatorio)/lAumentada(m, m);
+end
+disp(raizes);

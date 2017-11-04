@@ -12,7 +12,7 @@ function gauss(matrizAumentada)
     end
     %Encontrar raízes
     raizes = ones(1, i);    
-    for m=i:-1:1              
+    for m=i:-1:1
         vet = (matrizGauss(m, m:j-1) .* raizes(1, m:j-1));           
         %somatório
         somatorio = 0;        

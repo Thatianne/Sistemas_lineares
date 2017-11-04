@@ -26,19 +26,29 @@ for i=1:m
 end
 disp(l);
 disp(u);
-lAumentada = [l sistema(:, 1:j)];
-%uAumentada = [u sistema(:, 1:j)];
-
+[i, j] = size(sistema);
+lAumentada = [l sistema(:, j)];
+%Raízes l
 raizes = ones(1, i);    
-for m=i:-1:1              
-    vet = (lAumentada(m, m:j-1) .* raizes(1, m:j-1));           
+for m=1:i    
+    vet = (lAumentada(m, 1:m) .* raizes(1, 1:m));    
+    somatorio = sum(vet(1, 1:m-1));    
+    raizes(m) = (lAumentada(m, j) - somatorio)/lAumentada(m, m);    
+end
+uAumentada = [u raizes'];
+for m=i:-1:1
+    vet = (uAumentada(m, m:j-1) .* raizes(1, m:j-1));
     %somatório
-    somatorio = 0;        
-    for n=1:(j-m-1)            
-        somatorio = somatorio + vet(1, n+1);   
-    end        
-    raizes(m) = (lAumentada(m, j) - somatorio)/lAumentada(m, m);                        
+    disp('aa****aa');
+    disp(vet);
+    disp(j);
+    disp(m);
+    disp('****');
+    somatorio = 0;
+    
+    for n=1:(j-m-1)
+        somatorio = somatorio + vet(1, n+1);
+    end
+    raizes(m) = (uAumentada(m, j) - somatorio)/uAumentada(m, m);
 end
 disp(raizes);
-    
-    
