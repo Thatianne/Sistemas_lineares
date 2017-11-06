@@ -2,9 +2,9 @@ function resultado = gaussJacobi(sistema, erro)
 disp('********** Gauss-Jacobi **********');
 [i, j] = size(sistema);
 solucoes = zeros(1, i);
-menorErro = realmax;
+maiorErro = realmax;
 cont = 0;
-while menorErro > erro    
+while maiorErro > erro    
     solucoesAnterior = solucoes;
     solucoesAtual = solucoes;
     for m=1:i
@@ -13,7 +13,7 @@ while menorErro > erro
         solucoes(m) = (sistema(m, j) - somatorio)/sistema(m, m);        
     end    
     erros = solucoes - solucoesAnterior;
-    menorErro = max(abs(erros));
+    maiorErro = max(abs(erros));
     disp(solucoes);
     if cont > 100
         break;

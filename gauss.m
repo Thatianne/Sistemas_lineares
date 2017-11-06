@@ -11,7 +11,7 @@ for m = 1:i-1
     end
     disp(matrizGauss);
 end
-%Encontrar raízes
+%Encontrar as soluções
 solucoes = ones(1, i);
 for m=i:-1:1
     vet = (matrizGauss(m, m:j-1) .* solucoes(1, m:j-1));

@@ -29,7 +29,7 @@ disp(l);
 disp(u);
 [i, j] = size(sistema);
 lAumentada = [l sistema(:, j)];
-%Raízes l
+%Solução l
 solucoes = ones(1, i);    
 for m=1:i    
     vet = (lAumentada(m, 1:m) .* solucoes(1, 1:m));    

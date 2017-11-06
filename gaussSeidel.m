@@ -3,9 +3,9 @@ disp('********** Gauss-Seidel **********');
 [i, j] = size(sistema);
 solucoes = zeros(1, i);
 solucoesAtual = zeros(1, i);
-menorErro = realmax;
+maiorErro = realmax;
 cont = 0;
-while menorErro > erro    
+while maiorErro > erro    
     solucoesAnterior = solucoes;    
     for m=1:i
         vet = ([sistema(m, 1:m-1) sistema(m, m+1:i)] .* [solucoesAtual(1, 1:m-1) solucoesAtual(1, m+1:i) ]);        
@@ -14,7 +14,7 @@ while menorErro > erro
     end
     solucoes = solucoesAtual;
     erros = solucoes - solucoesAnterior;
-    menorErro = max(abs(erros));
+    maiorErro = max(abs(erros));
     disp(solucoes);
     if cont > 15
         break;
